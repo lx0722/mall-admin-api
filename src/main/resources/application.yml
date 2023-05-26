@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: local
+  mvc:
+    throw-exception-if-no-handler-found: true
+  main:
+    allow-bean-definition-overriding: true
+
+logging:
+  level:
+    root: info
+  config: classpath:config/logback-spring.xml
+  file:
+    path: ./logs
+
+mybatis-plus:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: com/mall/admin/entity
+  configuration:
+    map-underscore-to-camel-case: true
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

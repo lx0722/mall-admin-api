@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    url: jdbc:mysql://47.94.4.243:3306/mall?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: lixiang
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 10
+      max-active: 20
+      min-idle: 10
+      max-wait: 6000
+      validation-query: "select '1'"
+      validation-query-timeout: 2000
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 600000
+      min-evictable-idle-time-millis: 300000
+      remove-abandoned: true
+  redis:
+    database: 0
+    host: 47.94.4.243
+    password: 111111
+    port: 6379
+    timeout: 1s
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 10
+        min-idle: 10
+        max-wait: 500ms
+
+jwt:
+  #JWT存储的请求头
+  tokenHeader: Authorization
+  #JWT加解密使用的密钥
+  secret: spring-security
+  #JWT超期限时间
+  expiration: 604800
+  #JWT 负载中拿到开头
+  tokenHead: Bearer
